@@ -1,37 +1,53 @@
 
+/* PICULA ONLINE STORE - COMPLETE SCRIPT */
+
 const products = [
   { id: 1, name: "Elegant Kurti", category: "Fashion", price: 799 },
   { id: 2, name: "Designer Top", category: "Fashion", price: 599 },
   { id: 3, name: "Casual Dress", category: "Fashion", price: 999 },
+
   { id: 4, name: "Pearl Earrings", category: "Jewellery", price: 299 },
   { id: 5, name: "Golden Necklace", category: "Jewellery", price: 699 },
   { id: 6, name: "Charm Bracelet", category: "Jewellery", price: 399 },
+
   { id: 7, name: "Mini Handbag", category: "Accessories", price: 899 },
   { id: 8, name: "Hair Clips Set", category: "Accessories", price: 199 },
   { id: 9, name: "Fashion Scarf", category: "Accessories", price: 349 },
+
   { id: 10, name: "Royal Poshak", category: "Laddu Gopal", price: 499 },
   { id: 11, name: "Mukut Set", category: "Laddu Gopal", price: 299 },
   { id: 12, name: "Shringar Set", category: "Laddu Gopal", price: 599 }
 ];
 
-const cart = [];
+let cart = [];
 let selectedCategory = "All";
 
 const productList = document.getElementById("product-list");
 const productSection = document.getElementById("products");
 
-const rupees = amount =>
-  "₹" + amount.toLocaleString("en-IN");
+function rupees(amount) {
+  return "₹" + amount.toLocaleString("en-IN");
+}
 
 function makeElement(tag, text, className) {
   const element = document.createElement(tag);
-  if (text !== undefined) element.textContent = text;
-  if (className) element.className = className;
+
+  if (text !== undefined) {
+    element.textContent = text;
+  }
+
+  if (className) {
+    element.className = className;
+  }
+
   return element;
 }
 
+/* PRODUCTS */
+
 function renderProducts() {
   if (!productList) return;
+
   productList.replaceChildren();
 
   const filters = makeElement("div", undefined, "product-filters");
@@ -64,7 +80,13 @@ function renderProducts() {
     )
     .forEach(product => {
       const card = makeElement("article", undefined, "product-card");
-      const image = makeElement("div", "PICULA", "product-placeholder");
+
+      const image = makeElement(
+        "div",
+        "PICULA",
+        "product-placeholder"
+      );
+
       const title = makeElement("h3", product.name);
       const category = makeElement("p", product.category);
       const price = makeElement("strong", rupees(product.price));
@@ -80,13 +102,15 @@ function renderProducts() {
   productList.appendChild(grid);
 }
 
-function addToCart(id) {
-  const item = cart.find(item => item.id === id);
+/* SHOPPING CART */
 
-  if (item) {
-    item.quantity++;
+function addToCart(id) {
+  const existingItem = cart.find(item => item.id === id);
+
+  if (existingItem) {
+    existingItem.quantity++;
   } else {
-    cart.push({ id, quantity: 1 });
+    cart.push({ id: id, quantity: 1 });
   }
 
   renderCart();
@@ -99,8 +123,7 @@ function changeQuantity(id, amount) {
   item.quantity += amount;
 
   if (item.quantity <= 0) {
-    const index = cart.indexOf(item);
-    cart.splice(index, 1);
+    cart = cart.filter(cartItem => cartItem.id !== id);
   }
 
   renderCart();
@@ -109,10 +132,14 @@ function changeQuantity(id, amount) {
 function getCartTotal() {
   return cart.reduce((total, item) => {
     const product = products.find(p => p.id === item.id);
-    return total + (product ? product.price * item.quantity : 0);
+
+    if (!product) return total;
+
+    return total + product.price * item.quantity;
   }, 0);
 }
 
+/* PAN INDIA SHIPPING */
 
 function getShippingCharge() {
   const subtotal = getCartTotal();
@@ -128,6 +155,12 @@ function getFinalTotal() {
   return getCartTotal() + getShippingCharge();
 }
 
+function getItemCount() {
+  return cart.reduce((total, item) => total + item.quantity, 0);
+}
+
+/* CART DISPLAY */
+
 function renderCart() {
   if (!productSection) return;
 
@@ -141,11 +174,14 @@ function renderCart() {
 
   cartBox.replaceChildren();
 
-  const count = cart.reduce((sum, item) => sum + item.quantity, 0);
-  cartBox.appendChild(makeElement("h3", `Your Cart (${count})`));
+  cartBox.appendChild(
+    makeElement("h3", `Your Cart (${getItemCount()})`)
+  );
 
   if (cart.length === 0) {
-    cartBox.appendChild(makeElement("p", "Your cart is empty."));
+    cartBox.appendChild(
+      makeElement("p", "Your cart is empty.")
+    );
     return;
   }
 
@@ -156,10 +192,17 @@ function renderCart() {
     const row = makeElement("div", undefined, "cart-item");
 
     row.appendChild(
-      makeElement("strong", `${product.name} — ${rupees(product.price)}`)
+      makeElement(
+        "strong",
+        `${product.name} — ${rupees(product.price)}`
+      )
     );
 
-    const controls = makeElement("div", undefined, "cart-controls");
+    const controls = makeElement(
+      "div",
+      undefined,
+      "cart-controls"
+    );
 
     const minus = makeElement("button", "−");
     minus.type = "button";
@@ -173,9 +216,9 @@ function renderCart() {
 
     const remove = makeElement("button", "Remove");
     remove.type = "button";
+
     remove.onclick = () => {
-      const index = cart.indexOf(item);
-      cart.splice(index, 1);
+      cart = cart.filter(cartItem => cartItem.id !== item.id);
       renderCart();
     };
 
@@ -185,18 +228,21 @@ function renderCart() {
   });
 
   cartBox.appendChild(
-    makeElement("h3", `Demo Subtotal: ${rupees(getCartTotal())}`)
+    makeElement(
+      "h3",
+      `Products Subtotal: ${rupees(getCartTotal())}`
+    )
   );
-    
+
   const shipping = getShippingCharge();
-  
+
   cartBox.appendChild(
     makeElement(
       "p",
       `Shipping: ${shipping === 0 ? "FREE" : rupees(shipping)}`
     )
   );
-  
+
   cartBox.appendChild(
     makeElement(
       "h3",
@@ -204,17 +250,32 @@ function renderCart() {
     )
   );
 
+  const checkoutButton = makeElement(
+    "button",
+    "Enter Delivery Details"
+  );
 
-  
-  const checkoutButton = makeElement("button", "Enter Delivery Details");
   checkoutButton.type = "button";
   checkoutButton.onclick = showCheckout;
 
   cartBox.appendChild(checkoutButton);
+
   cartBox.appendChild(
-    makeElement("p", "Demo only. No payment or order is being processed.")
+    makeElement(
+      "p",
+      "Demo only. No payment or order is being processed."
+    )
   );
+
+  // Remove outdated checkout preview when cart changes.
+  const checkout = document.getElementById("picula-checkout");
+
+  if (checkout) {
+    checkout.remove();
+  }
 }
+
+/* DELIVERY DETAILS */
 
 function showCheckout() {
   if (!cart.length || !productSection) return;
@@ -228,7 +289,10 @@ function showCheckout() {
   }
 
   checkout.replaceChildren();
-  checkout.appendChild(makeElement("h3", "Delivery Details"));
+
+  checkout.appendChild(
+    makeElement("h3", "Delivery Details")
+  );
 
   const form = document.createElement("form");
   form.className = "checkout-form";
@@ -278,55 +342,90 @@ function showCheckout() {
     event.preventDefault();
 
     const data = new FormData(form);
-    const name = String(data.get("customerName")).trim();
+    const customerName = String(
+      data.get("customerName")
+    ).trim();
 
     result.replaceChildren();
 
-    result.appendChild(makeElement("h3", "Order Preview"));
-    result.appendChild(makeElement("p", `Customer: ${name}`));
     result.appendChild(
-      makeElement("p", `Items: ${cart.reduce((s, i) => s + i.quantity, 0)}`)
+      makeElement("h3", "Order Preview")
     );
+
     result.appendChild(
-      makeElement("h3", `Demo Subtotal: ${rupees(getCartTotal())}`)
+      makeElement("p", `Customer: ${customerName}`)
     );
-    
-result.appendChild(
-  makeElement(
-    "p",
-    `Shipping: ${
-      getShippingCharge() === 0
-        ? "FREE"
-        : rupees(getShippingCharge())
-    }`
-  )
-);
 
-result.appendChild(
-  makeElement(
-    "h3",
-    `Final Total: ${rupees(getFinalTotal())}`
-  )
-);
+    result.appendChild(
+      makeElement("p", `Items: ${getItemCount()}`)
+    );
 
-result.appendChild(
-  makeElement(
-    "p",
-    "Demo only. Payment is not enabled yet."
-  )
-);
+    /* PRODUCT SUMMARY */
+
+    cart.forEach(item => {
+      const product = products.find(p => p.id === item.id);
+
+      if (!product) return;
+
+      result.appendChild(
+        makeElement(
+          "p",
+          `${product.name} × ${item.quantity} = ${rupees(
+            product.price * item.quantity
+          )}`
+        )
+      );
+    });
+
+    /* PRICE SUMMARY */
 
     result.appendChild(
       makeElement(
         "p",
-        "This is only a preview. No order has been submitted or confirmed."
+        `Products Subtotal: ${rupees(getCartTotal())}`
+      )
+    );
+
+    const shipping = getShippingCharge();
+
+    result.appendChild(
+      makeElement(
+        "p",
+        `Shipping: ${shipping === 0 ? "FREE" : rupees(shipping)}`
+      )
+    );
+
+    result.appendChild(
+      makeElement(
+        "h3",
+        `Final Total: ${rupees(getFinalTotal())}`
+      )
+    );
+
+    result.appendChild(
+      makeElement(
+        "p",
+        "This is a demo preview. Payment is not enabled yet."
+      )
+    );
+
+    result.appendChild(
+      makeElement(
+        "p",
+        "No order has been submitted or confirmed."
       )
     );
   };
 
   checkout.append(form, result);
-  checkout.scrollIntoView({ behavior: "smooth", block: "start" });
+
+  checkout.scrollIntoView({
+    behavior: "smooth",
+    block: "start"
+  });
 }
+
+/* START PICULA STORE */
 
 renderProducts();
 renderCart();
