@@ -113,6 +113,21 @@ function getCartTotal() {
   }, 0);
 }
 
+
+function getShippingCharge() {
+  const subtotal = getCartTotal();
+
+  if (subtotal === 0) return 0;
+  if (subtotal >= 1000) return 0;
+  if (subtotal >= 500) return 40;
+
+  return 60;
+}
+
+function getFinalTotal() {
+  return getCartTotal() + getShippingCharge();
+}
+
 function renderCart() {
   if (!productSection) return;
 
@@ -172,7 +187,25 @@ function renderCart() {
   cartBox.appendChild(
     makeElement("h3", `Demo Subtotal: ${rupees(getCartTotal())}`)
   );
+    
+  const shipping = getShippingCharge();
+  
+  cartBox.appendChild(
+    makeElement(
+      "p",
+      `Shipping: ${shipping === 0 ? "FREE" : rupees(shipping)}`
+    )
+  );
+  
+  cartBox.appendChild(
+    makeElement(
+      "h3",
+      `Final Total: ${rupees(getFinalTotal())}`
+    )
+  );
 
+
+  
   const checkoutButton = makeElement("button", "Enter Delivery Details");
   checkoutButton.type = "button";
   checkoutButton.onclick = showCheckout;
@@ -257,12 +290,32 @@ function showCheckout() {
     result.appendChild(
       makeElement("h3", `Demo Subtotal: ${rupees(getCartTotal())}`)
     );
-    result.appendChild(
-      makeElement(
-        "p",
-        "Delivery charges are not included. Payment is not enabled yet."
-      )
-    );
+    
+result.appendChild(
+  makeElement(
+    "p",
+    `Shipping: ${
+      getShippingCharge() === 0
+        ? "FREE"
+        : rupees(getShippingCharge())
+    }`
+  )
+);
+
+result.appendChild(
+  makeElement(
+    "h3",
+    `Final Total: ${rupees(getFinalTotal())}`
+  )
+);
+
+result.appendChild(
+  makeElement(
+    "p",
+    "Demo only. Payment is not enabled yet."
+  )
+);
+
     result.appendChild(
       makeElement(
         "p",
