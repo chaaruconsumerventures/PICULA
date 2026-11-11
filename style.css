@@ -137,3 +137,101 @@
     padding: 16px;
   }
 }
+
+
+/* PICULA CART QUANTITY CONTROLS */
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 15px 0;
+  border-bottom: 1px solid #e5d6ca;
+}
+
+.cart-controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.cart-controls button {
+  min-width: 38px;
+  padding: 9px 12px;
+}
+
+.cart-controls span {
+  font-weight: bold;
+  min-width: 20px;
+  text-align: center;
+}
+
+/* CHECKOUT FORM */
+
+#picula-checkout {
+  margin-top: 30px;
+  padding: 30px;
+  background: #fff8f3;
+  border: 1px solid #eadfd5;
+  border-radius: 14px;
+}
+
+#picula-checkout h3 {
+  margin-bottom: 20px;
+}
+
+.checkout-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.checkout-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.checkout-form input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px;
+  border: 1px solid #d9c8bb;
+  border-radius: 8px;
+  background: white;
+  font: inherit;
+}
+
+.checkout-form input:focus {
+  outline: 2px solid #b77b63;
+  outline-offset: 1px;
+}
+
+.checkout-form button {
+  grid-column: 1 / -1;
+  background: #24201e;
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#checkout-result {
+  margin-top: 20px;
+}
+
+@media (max-width: 600px) {
+  #picula-checkout {
+    padding: 18px;
+  }
+
+  .checkout-form {
+    grid-template-columns: 1fr;
+  }
+}
