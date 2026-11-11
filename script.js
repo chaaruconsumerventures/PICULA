@@ -1,6 +1,5 @@
 
-const products = [
-  
+const products = [  
   { id: 1, name: "Elegant Kurti", category: "Fashion", price: 799, image: "images/elegant-kurti.png" },
   { id: 2, name: "Designer Top", category: "Fashion", price: 599, image: "images/designer-top.png" },
   { id: 3, name: "Casual Dress", category: "Fashion", price: 999, image: "images/casual-dress.png" },
