@@ -30,9 +30,6 @@ const products = [
     optionLabel: "Size",
     description: "AI demo product. Decorative bansuri and jewellery accessories for Laddu Gopal. Final set contents and sizes will be confirmed when stock is available."
   },
-  {id:7,name:'Mini Handbag',category:'Accessories',price:899,options:['Beige','Black'],optionLabel:'Colour',description:'Sample handbag. Size and material will be updated.'},
-  {id:8,name:'Hair Clips Set',category:'Accessories',price:199,options:['Pastel','Neutral'],optionLabel:'Colour',description:'Sample hair clips set. Actual colours and pack contents are pending.'},
-  {id:9,name:'Fashion Scarf',category:'Accessories',price:349,options:['Beige','Pink'],optionLabel:'Colour',description:'Sample scarf. Actual fabric and measurements will be updated.'},
   {id:10,name:'Royal Poshak',category:'Laddu Gopal',price:499,options:['Size 0','Size 1','Size 2','Size 3'],optionLabel:'Poshak Size',image:'images/royal-poshak.webp',description:'Illustrative AI-generated image; sample Laddu Gopal poshak. Confirm measurements before making or ordering.'},
   {id:11,name:'Mukut Set',category:'Laddu Gopal',price:299,options:['Small','Medium'],optionLabel:'Size',image:'images/mukut-set.webp',description:'Illustrative AI-generated image; sample mukut set. Actual fit and dimensions will be confirmed.'},
   {id:12,name:'Shringar Set',category:'Laddu Gopal',price:599,options:['Small','Medium'],optionLabel:'Size',image:'images/shringar-set.webp',description:'Illustrative AI-generated image; sample shringar set. Final contents and measurements are pending.'}
