@@ -252,4 +252,10 @@
 .picula-detail-footer{text-align:center;padding:25px 16px;background:#fff8f3;color:#75685f;font-size:13px}
 #picula-product-detail #picula-cart{margin-top:45px}
 @media(max-width:700px){.picula-detail-grid{grid-template-columns:1fr;gap:24px}.picula-detail-image{min-height:280px}.picula-detail-header{padding:16px 20px}.picula-brand{font-size:22px}}
+.product-placeholder.picula-photo-wrap {display:block}
+.picula-photo-wrap {position:relative;overflow:hidden;padding:0;}
+.picula-photo-wrap img {display:block;width:100%;height:100%;object-fit:cover;}
+.product-placeholder.picula-photo-wrap {height:230px;min-height:230px;}
+.picula-detail-image.picula-photo-wrap {min-height:360px;}
+.picula-sample-tag {position:absolute;bottom:10px;left:10px;background:rgba(255,255,255,.93);color:#432d25;font-size:11px;font-weight:700;padding:6px 9px;border-radius:5px;letter-spacing:.04em;}
 
