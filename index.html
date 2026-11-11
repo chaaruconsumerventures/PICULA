@@ -1,37 +1,396 @@
+
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="PICULA — discover fashion, jewellery, accessories and devotional collections. A new shopping destination coming soon.">
-<title>PICULA | Fashion • Jewellery • Accessories</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <meta name="description"
+    content="PICULA — Laddu Gopal poshak, mukut, mala and devotional shringar. Female clothing and accessories coming soon.">
+
+  <title>PICULA | Laddu Gopal Shringar & More</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* PICULA NEW HOMEPAGE */
+
+    .picula-welcome {
+      text-align: center;
+      padding: 75px 20px 55px;
+      background: #f8efe8;
+    }
+
+    .picula-welcome .eyebrow {
+      color: #a26c56;
+      letter-spacing: 2px;
+    }
+
+    .picula-welcome h1 {
+      font-size: clamp(36px, 6vw, 68px);
+      line-height: 1.15;
+      color: #34251f;
+      margin: 18px auto;
+      max-width: 850px;
+    }
+
+    .picula-welcome h1 em {
+      color: #ae806b;
+    }
+
+    .picula-welcome p {
+      max-width: 600px;
+      margin: 0 auto 26px;
+      line-height: 1.8;
+    }
+
+    .picula-category-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 25px;
+      margin-top: 35px;
+    }
+
+    .picula-category {
+      background: white;
+      border: 1px solid #eadfd5;
+      border-radius: 18px;
+      overflow: hidden;
+    }
+
+    .picula-category.featured {
+      grid-column: 1 / -1;
+    }
+
+    .picula-category img {
+      display: block;
+      width: 100%;
+      height: 270px;
+      object-fit: cover;
+    }
+
+    .picula-category.featured img {
+      height: 370px;
+      object-position: center 40%;
+    }
+
+    .picula-category-info {
+      padding: 25px;
+    }
+
+    .picula-category-info h3 {
+      font-size: 25px;
+      margin-bottom: 10px;
+    }
+
+    .picula-category-info p {
+      margin-bottom: 18px;
+    }
+
+    .picula-category-info a {
+      display: inline-block;
+      padding: 12px 22px;
+      background: #302620;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+    }
+
+    .picula-coming {
+      display: inline-block;
+      padding: 9px 15px;
+      border-radius: 20px;
+      background: #f4e8df;
+      color: #825b48;
+      font-weight: 600;
+    }
+
+    .picula-sample-notice {
+      color: #77675e;
+      font-size: 14px;
+      margin-top: 22px;
+    }
+
+    @media (max-width: 650px) {
+      .picula-welcome {
+        padding: 55px 18px 40px;
+      }
+
+      .picula-category-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .picula-category.featured {
+        grid-column: auto;
+      }
+
+      .picula-category img,
+      .picula-category.featured img {
+        height: 250px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<div class="announcement">A new style story is beginning ✦ PICULA is coming soon</div>
-<header class="site-header"><a class="logo" href="#home" aria-label="PICULA home">PICULA<span class="logo-dot">.</span></a><nav aria-label="Main navigation"><a href="#collections">Collections</a><a href="#about">Our Story</a><a href="#contact">Contact</a></nav><a class="header-cta" href="#collections">Explore <span aria-hidden="true">↗</span></a></header>
+
+<div class="announcement">
+  PICULA ✦ Laddu Gopal Shringar Collection Preview
+</div>
+
+<header class="site-header">
+  <a class="logo" href="#home" aria-label="PICULA home">
+    PICULA<span class="logo-dot">.</span>
+  </a>
+
+  <nav aria-label="Main navigation">
+    <a href="#collections">Collections</a>
+    <a href="#products">Laddu Gopal</a>
+    <a href="#about">Our Story</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <a class="header-cta" href="#collections">
+    Explore ↗
+  </a>
+</header>
+
 <main>
-<section class="hero" id="home"><div class="hero-copy"><p class="eyebrow">THE NEW WAY TO EXPRESS YOURSELF</p><h1>Find your <em>kind of</em> beautiful.</h1><p class="hero-description">Everyday style, little luxuries, and thoughtful finds. Discover a world of fashion, jewellery, accessories and more — curated for you.</p><a class="button primary" href="#collections">Explore collections <span aria-hidden="true">↗</span></a><div class="hero-foot"><span>STYLE</span><span class="separator">✳</span><span>DETAILS</span><span class="separator">✳</span><span>YOU</span></div></div><div class="hero-art" aria-label="Abstract editorial illustration of fashion accessories"><div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div><div class="art-circle"></div><div class="art-handbag"><div class="bag-handle"></div><div class="bag-body"><span>P</span></div></div><div class="art-label">THE PICULA EDIT <span>01 / 04</span></div><span class="art-sparkle sparkle-one">✦</span><span class="art-sparkle sparkle-two">✧</span></div></section>
-<section class="intro"><span>CURATED FOR YOUR EVERY MOOD</span><p>Little details. <em>Big personality.</em></p></section>
-<section class="collections section" id="collections"><div class="section-heading"><div><p class="eyebrow">DISCOVER PICULA</p><h2>Explore our world<span class="accent">.</span></h2></div><p>Four collections, countless ways to make your style your own.</p></div><div class="collection-grid"><article class="collection-card fashion"><div class="collection-visual"><div class="fashion-illustration"><div class="hanger"></div><div class="dress-top"></div><div class="dress-skirt"></div></div><span class="visual-mark">01</span></div><div class="collection-info"><div><h3>Fashion</h3><p>Looks for every occasion</p></div><span aria-hidden="true">↗</span></div><span class="coming">Coming soon</span></article><article class="collection-card jewellery"><div class="collection-visual"><div class="jewel-illustration"><div class="jewel-ring"></div><div class="jewel-stone"></div><div class="jewel-small"></div></div><span class="visual-mark">02</span></div><div class="collection-info"><div><h3>Jewellery</h3><p>Little pieces, lasting shine</p></div><span aria-hidden="true">↗</span></div><span class="coming">Coming soon</span></article><article class="collection-card accessories"><div class="collection-visual"><div class="accessory-illustration"><div class="mini-handle"></div><div class="mini-bag"></div></div><span class="visual-mark">03</span></div><div class="collection-info"><div><h3>Accessories</h3><p>The finishing touch</p></div><span aria-hidden="true">↗</span></div><span class="coming">Coming soon</span></article><article class="collection-card devotional"><div class="collection-visual"><div class="lotus-illustration"><span>✺</span></div><span class="visual-mark">04</span></div><div class="collection-info"><div><h3>Laddu Gopal</h3><p>Poshak & devotional shringar</p></div><span aria-hidden="true">↗</span></div><span class="coming">Coming soon</span></article></div></section>
-<section class="section" id="products">
-  <div class="section-heading">
-    <div>
-      <p class="eyebrow">SHOP PICULA</p>
-      <h2>Our Products<span class="accent">.</span></h2>
+
+  <!-- WELCOME -->
+
+  <section class="picula-welcome" id="home">
+    <p class="eyebrow">WELCOME TO PICULA</p>
+
+    <h1>
+      A little something <em>beautiful.</em>
+    </h1>
+
+    <p>
+      Discover thoughtful collections, beautiful details
+      and little moments of joy.
+    </p>
+
+    <a class="button primary" href="#collections">
+      Explore Our Collections ↗
+    </a>
+  </section>
+
+  <!-- THREE COLLECTIONS -->
+
+  <section class="section" id="collections">
+
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">DISCOVER PICULA</p>
+        <h2>Our Collections<span class="accent">.</span></h2>
+      </div>
+
+      <p>
+        Three beautiful collections.
+        One growing brand.
+      </p>
     </div>
-    <p>Explore fashion, jewellery, accessories and more.</p>
-  </div>
 
-  <div id="product-list"></div>
+    <div class="picula-category-grid">
 
-  <p style="margin-top:24px;color:#777;">
-    Demo products only. Prices and availability will
-    be confirmed before orders open.
+      <!-- LADDU GOPAL -->
+
+      <article class="picula-category featured">
+
+        <img
+          src="images/royal-poshak.webp"
+          alt="AI sample image of Laddu Gopal shringar"
+          loading="lazy"
+        >
+
+        <div class="picula-category-info">
+          <p class="eyebrow">DEVOTIONAL COLLECTION</p>
+
+          <h3>Laddu Gopal Shringar</h3>
+
+          <p>
+            Explore beautiful poshak, mukut, mala,
+            bansuri and devotional shringar.
+          </p>
+
+          <a href="#products">
+            Explore Collection ↗
+          </a>
+        </div>
+      </article>
+
+      <!-- FEMALE CLOTHING -->
+
+      <article class="picula-category">
+
+        <img
+          src="images/elegant-kurti.png"
+          alt="AI sample image of women's clothing"
+          loading="lazy"
+        >
+
+        <div class="picula-category-info">
+          <p class="eyebrow">FASHION COLLECTION</p>
+
+          <h3>Female Clothing</h3>
+
+          <p>
+            Elegant everyday wear and thoughtfully
+            selected fashion styles.
+          </p>
+
+          <span class="picula-coming">
+            Coming Soon
+          </span>
+        </div>
+      </article>
+
+      <!-- FEMALE ACCESSORIES -->
+
+      <article class="picula-category">
+
+        <div
+          style="height:270px;background:linear-gradient(135deg,#f2d8c5,#d9a58e);display:flex;align-items:center;justify-content:center;color:#704d3e;font-size:24px;font-weight:600;"
+        >
+          PICULA ACCESSORIES
+        </div>
+
+        <div class="picula-category-info">
+          <p class="eyebrow">ACCESSORIES COLLECTION</p>
+
+          <h3>Female Accessories</h3>
+
+          <p>
+            Bags, hair accessories and finishing
+            touches for every style.
+          </p>
+
+          <span class="picula-coming">
+            Coming Soon
+          </span>
+        </div>
+      </article>
+
+    </div>
+
+    <p class="picula-sample-notice">
+      Images are AI-generated samples.
+      Actual products and availability may differ.
+    </p>
+
+  </section>
+
+  <!-- LADDU GOPAL SHOP -->
+
+  <section class="section" id="products">
+
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">PICULA DEVOTIONAL EDIT</p>
+
+        <h2>
+          Laddu Gopal Collection
+          <span class="accent">.</span>
+        </h2>
+      </div>
+
+      <p>
+        Discover poshak, mukut, jewellery,
+        mala and shringar accessories.
+      </p>
+    </div>
+
+    <div id="product-list"></div>
+
+    <p style="margin-top:24px;color:#777;">
+      Demo products and indicative prices only.
+      Orders and online payments are not available yet.
+    </p>
+
+  </section>
+
+  <!-- ABOUT -->
+
+  <section class="story section" id="about">
+
+    <div class="story-icon">✳</div>
+
+    <div>
+      <p class="eyebrow">OUR STORY</p>
+
+      <h2>
+        Beautiful details.
+        <em>Thoughtfully chosen.</em>
+      </h2>
+
+      <p>
+        PICULA is a growing Indian brand by
+        Chaaru Consumer Ventures.
+
+        We are beginning our journey with
+        Laddu Gopal devotional shringar,
+        with women's clothing and accessories
+        planned for the future.
+      </p>
+    </div>
+
+  </section>
+
+  <!-- CONTACT -->
+
+  <section class="contact section" id="contact">
+
+    <p class="eyebrow">GET IN TOUCH</p>
+
+    <h2>
+      Something lovely
+      <em>is on its way.</em>
+    </h2>
+
+    <p>
+      Our collections are being prepared.
+      Contact us for enquiries and launch updates.
+    </p>
+
+    <a
+      class="button light"
+      href="mailto:chaaruconsumerventures@gmail.com?subject=PICULA%20Enquiry"
+    >
+      Email PICULA ↗
+    </a>
+
+    <p class="contact-email">
+      chaaruconsumerventures@gmail.com
+    </p>
+
+  </section>
+
+</main>
+
+<footer>
+
+  <a class="logo" href="#home">
+    PICULA<span class="logo-dot">.</span>
+  </a>
+
+  <p>
+    Laddu Gopal · Female Clothing · Female Accessories
   </p>
-</section>
-<section class="story section" id="about"><div class="story-icon">✳</div><div><p class="eyebrow">A LITTLE ABOUT US</p><h2>Made for the joy of <em>finding your style.</em></h2><p>PICULA is a growing Indian brand bringing together fashion, jewellery, accessories and special devotional pieces. We're getting our first collections ready — thoughtfully, one detail at a time.</p></div></section>
-<section class="contact section" id="contact"><p class="eyebrow">STAY IN THE LOOP</p><h2>Something lovely<br><em>is on its way.</em></h2><p>Our collections are being prepared. For enquiries and launch updates, write to us.</p><a class="button light" href="mailto:chaaruconsumerventures@gmail.com?subject=PICULA%20Enquiry">Email PICULA <span aria-hidden="true">↗</span></a><p class="contact-email">chaaruconsumerventures@gmail.com</p></section>
-</main><footer><a class="logo" href="#home">PICULA<span class="logo-dot">.</span></a><p>Fashion · Jewellery · Accessories · Devotional</p><small>© <span id="year">2026</span> PICULA. All rights reserved.</small></footer>
-<script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+
+  <small>
+    © <span id="year">2026</span>
+    PICULA. All rights reserved.
+  </small>
+
+</footer>
+
+<script>
+  document.getElementById("year").textContent =
+    new Date().getFullYear();
+</script>
+
 <script src="script.js" defer></script>
-</body></html>
+
+</body>
+</html>
