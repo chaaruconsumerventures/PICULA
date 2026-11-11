@@ -3,8 +3,7 @@ const products = [
   { id: 1, name: "Elegant Kurti", category: "Fashion", price: 799, image: "images/elegant-kurti.png" },
   { id: 2, name: "Designer Top", category: "Fashion", price: 599, image: "images/designer-top.png" },
   { id: 3, name: "Casual Dress", category: "Fashion", price: 999, image: "images/casual-dress.png" },
-  {
-    id: 4,
+  { id: 4,
     name: "Laddu Gopal Mukut",
     category: "Jewellery",
     price: 299,
@@ -13,8 +12,7 @@ const products = [
     optionLabel: "Size",
     description: "AI demo product. Decorative Laddu Gopal mukut with pearls, stones and peacock feather. Actual design and size will depend on available stock."
   },
-  {
-    id: 5,
+  { id: 5,
     name: "Laddu Gopal Haar / Mala",
     category: "Jewellery",
     price: 699,
@@ -23,8 +21,7 @@ const products = [
     optionLabel: "Size",
     description: "AI demo product. Decorative pearl mala with colourful stones for Laddu Gopal. Actual materials and dimensions are not confirmed."
   },
-  {
-    id: 6,
+  { id: 6,
     name: "Laddu Gopal Bansuri & Jewellery Set",
     category: "Jewellery",
     price: 399,
