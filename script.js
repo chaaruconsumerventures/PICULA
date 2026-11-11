@@ -1,8 +1,9 @@
 
 const products = [
-  {id:1,name:'Elegant Kurti',category:'Fashion',price:799,options:['S','M','L','XL'],optionLabel:'Size',description:'Sample kurti listing. Fabric, measurements and colours will be confirmed when actual stock is available.'},
-  {id:2,name:'Designer Top',category:'Fashion',price:599,options:['S','M','L','XL'],optionLabel:'Size',description:'Sample fashion top. Final material and fitting details will be updated later.'},
-  {id:3,name:'Casual Dress',category:'Fashion',price:999,options:['S','M','L','XL'],optionLabel:'Size',description:'Sample casual dress. Photos and specifications are not final.'},
+  
+  { id: 1, name: "Elegant Kurti", category: "Fashion", price: 799, image: "images/elegant-kurti.png" },
+  { id: 2, name: "Designer Top", category: "Fashion", price: 599, image: "images/designer-top.png" },
+  { id: 3, name: "Casual Dress", category: "Fashion", price: 999, image: "images/casual-dress.png" },
   {id:4,name:'Pearl Earrings',category:'Jewellery',price:299,options:['White','Cream'],optionLabel:'Colour',description:'Sample earrings. Material and finish will be confirmed before sale.'},
   {id:5,name:'Golden Necklace',category:'Jewellery',price:699,options:['Gold tone'],optionLabel:'Finish',description:'Sample necklace. Material and dimensions are pending.'},
   {id:6,name:'Charm Bracelet',category:'Jewellery',price:399,options:['Gold tone','Silver tone'],optionLabel:'Finish',description:'Sample bracelet. Final design and material may vary.'},
