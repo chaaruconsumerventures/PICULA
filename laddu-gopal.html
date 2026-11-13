@@ -1,42 +1,297 @@
+
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Explore PICULA Laddu Gopal poshak, mukut, mala and shringar demo collection.">
-<title>Laddu Gopal Shringar | PICULA</title>
-<link rel="stylesheet" href="style.css">
-<style>
-.picula-collection-intro{background:#f8efe8;text-align:center;padding:65px 20px 45px}
-.picula-collection-intro h1{font-size:clamp(30px,5vw,58px);color:#34251f;margin:12px 0}
-.picula-collection-intro p{max-width:650px;margin:0 auto;line-height:1.7}
-.picula-return{display:inline-block;margin-top:20px;color:#754b3b;text-decoration:underline}
-#products{padding-top:45px}
-#picula-cart{margin-top:35px}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <meta name="description"
+    content="Explore PICULA Laddu Gopal poshak, mukut, mala and devotional shringar collection.">
+
+  <title>Laddu Gopal Shringar | PICULA</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* PICULA LADDU GOPAL COLLECTION */
+
+    .lg-hero {
+      background: #f8efe8;
+      padding: 55px 20px;
+    }
+
+    .lg-hero-inner {
+      max-width: 1150px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 45px;
+    }
+
+    .lg-hero-copy .eyebrow {
+      color: #a66e55;
+      letter-spacing: 2px;
+    }
+
+    .lg-hero h1 {
+      font-size: clamp(36px, 5vw, 65px);
+      line-height: 1.1;
+      color: #34251f;
+      margin: 20px 0;
+    }
+
+    .lg-hero h1 em {
+      color: #aa7c67;
+    }
+
+    .lg-hero-description {
+      color: #69594f;
+      line-height: 1.8;
+      font-size: 16px;
+      margin-bottom: 24px;
+    }
+
+    .lg-hero-image {
+      overflow: hidden;
+      border-radius: 22px;
+      background: #ead7c7;
+    }
+
+    .lg-hero-image img {
+      display: block;
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+    }
+
+    .lg-return {
+      display: inline-block;
+      padding: 13px 23px;
+      background: #34251f;
+      color: #fff;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .lg-return:hover {
+      background: #805540;
+    }
+
+    .lg-highlights {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      padding: 18px;
+      background: #fff9f4;
+      color: #735a4c;
+      font-size: 13px;
+      border-bottom: 1px solid #eadfd5;
+    }
+
+    .lg-highlights span {
+      white-space: nowrap;
+    }
+
+    #products {
+      padding-top: 65px;
+      padding-bottom: 65px;
+    }
+
+    #picula-cart {
+      margin-top: 40px;
+    }
+
+    .lg-note {
+      background: #fbf5ef;
+      border: 1px solid #eaded3;
+      padding: 20px;
+      border-radius: 12px;
+      margin-top: 30px;
+      color: #765f52;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 768px) {
+      .lg-hero {
+        padding: 35px 18px;
+      }
+
+      .lg-hero-inner {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+
+      .lg-hero-image img {
+        height: 300px;
+      }
+
+      .lg-highlights {
+        gap: 12px;
+        font-size: 12px;
+      }
+
+      #products {
+        padding-top: 40px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<div class="announcement">PICULA ✦ Laddu Gopal Shringar Collection Preview</div>
-<header class="site-header">
-<a class="logo" href="index.html#home" aria-label="PICULA home">PICULA<span class="logo-dot">.</span></a>
-<nav aria-label="Main navigation"><a href="index.html#collections">Collections</a><a href="index.html#about">Our Story</a><a href="index.html#contact">Contact</a></nav>
-<a class="header-cta" href="index.html#collections">All Collections ↗</a>
-</header>
-<main>
-<section class="picula-collection-intro">
-<p class="eyebrow">PICULA DEVOTIONAL EDIT</p>
-<h1>Laddu Gopal Shringar</h1>
-<p>Explore our sample collection of poshak, mukut, mala, bansuri and devotional shringar. Orders and online payments are not yet active.</p>
-<a class="picula-return" href="index.html#collections">← Back to Collections</a>
-</section>
-<section class="section" id="products">
-<div class="section-heading"><div><p class="eyebrow">EXPLORE THE COLLECTION</p><h2>Laddu Gopal Products<span class="accent">.</span></h2></div><p>Six sample products, thoughtfully presented.</p></div>
-<div id="product-list"></div>
-<p style="margin-top:24px;color:#777">AI-generated sample images and indicative prices only. Actual products, stock and measurements are not confirmed. No payment or order submission is available.</p>
-</section>
-</main>
-<footer><a class="logo" href="index.html#home">PICULA<span class="logo-dot">.</span></a><p>Laddu Gopal · Female Clothing · Female Accessories</p><small>© <span id="year">2026</span> PICULA. All rights reserved.</small></footer>
-<script>document.getElementById('year').textContent=new Date().getFullYear();</script>
-<script src="script.js" defer></script>
+
+  <div class="announcement">
+    PICULA ✦ Laddu Gopal Shringar Collection Preview
+  </div>
+
+  <header class="site-header">
+
+    <a class="logo" href="index.html#home"
+       aria-label="PICULA home">
+      PICULA<span class="logo-dot">.</span>
+    </a>
+
+    <nav aria-label="Main navigation">
+      <a href="index.html#collections">Collections</a>
+      <a href="#products">Shop</a>
+      <a href="index.html#about">Our Story</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+
+    <a class="header-cta" href="index.html#collections">
+      All Collections ↗
+    </a>
+
+  </header>
+
+  <main>
+
+    <!-- LADDU GOPAL HERO -->
+
+    <section class="lg-hero">
+
+      <div class="lg-hero-inner">
+
+        <div class="lg-hero-copy">
+
+          <p class="eyebrow">
+            PICULA DEVOTIONAL COLLECTION
+          </p>
+
+          <h1>
+            Little details.
+            <em>Divine beauty.</em>
+          </h1>
+
+          <p class="lg-hero-description">
+            Discover our beautiful Laddu Gopal
+            shringar collection — from colourful
+            poshak and elegant mukut to mala,
+            bansuri and devotional accessories.
+          </p>
+
+          <a class="lg-return" href="#products">
+            Explore Products ↗
+          </a>
+
+          <p style="margin-top:18px;">
+            <a href="index.html#collections"
+               style="color:#795949;text-decoration:underline;">
+              ← Back to All Collections
+            </a>
+          </p>
+
+        </div>
+
+        <div class="lg-hero-image">
+
+          <img
+            src="images/royal-poshak.webp"
+            alt="Laddu Gopal royal poshak AI sample image"
+          >
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- COLLECTION HIGHLIGHTS -->
+
+    <div class="lg-highlights">
+      <span>✦ Poshak</span>
+      <span>✦ Mukut</span>
+      <span>✦ Mala</span>
+      <span>✦ Bansuri</span>
+      <span>✦ Shringar Sets</span>
+    </div>
+
+    <!-- PRODUCTS -->
+
+    <section class="section" id="products">
+
+      <div class="section-heading">
+
+        <div>
+          <p class="eyebrow">
+            EXPLORE THE COLLECTION
+          </p>
+
+          <h2>
+            Laddu Gopal Products
+            <span class="accent">.</span>
+          </h2>
+        </div>
+
+        <p>
+          Six beautiful sample products,
+          thoughtfully presented.
+        </p>
+
+      </div>
+
+      <div id="product-list"></div>
+
+      <div class="lg-note">
+        <strong>Important:</strong>
+        These are AI-generated sample images
+        and indicative prices only.
+        Actual products, materials, stock
+        and measurements are not yet confirmed.
+        Online payments and order submission
+        are currently unavailable.
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer>
+
+    <a class="logo" href="index.html#home">
+      PICULA<span class="logo-dot">.</span>
+    </a>
+
+    <p>
+      Laddu Gopal · Female Clothing · Female Accessories
+    </p>
+
+    <small>
+      © <span id="year">2026</span>
+      PICULA. All rights reserved.
+    </small>
+
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+
+  <script src="script.js" defer></script>
+
 </body>
 </html>
